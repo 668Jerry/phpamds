@@ -1,5 +1,26 @@
 <link rel="stylesheet" href="https://s3-ap-southeast-1.amazonaws.com/beefbbq/static/css/su.min.css"/>
 
+<article>
+    <h1>8/6</h1>
+    <table border="1" class="ui basic table">
+<?
+
+$dsn = "mysql:host=localhost;dbname=adms_test";
+try {
+    $db = new PDO($dsn, 'root');
+    $rs = $db -> query("SELECT * FROM grade");
+//    echo $rs;
+    while($row = $rs -> fetch()){
+        echo "<tr><td>id:".$row['id']."</td><td>name:".$row['name']."</td><td>chinese:".$row['chinese']."</td><td>english:".$row['english']."</td><td>mathematics:".$row['mathematics']."</td></tr>";
+    }
+}
+catch(PDOException $e) {
+    echo 'ERROR: ' . $e->getMessage();
+}
+?>
+    </table>
+</article>
+
 <table width="200px" border="1" class="ui basic table">
     <thead>
 <?
