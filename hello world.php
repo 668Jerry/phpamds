@@ -1,7 +1,28 @@
 <link rel="stylesheet" href="https://s3-ap-southeast-1.amazonaws.com/beefbbq/static/css/su.min.css"/>
 
+
 <article>
-    <h1>8/6</h1>
+    <h1>8/6 Write</h1>
+    <table border="1" class="ui basic table">
+        <?
+
+        $dsn = "mysql:host=localhost;dbname=adms_test";
+        try {
+            $db = new PDO($dsn, 'root');
+            $count = $db -> exec("INSERT INTO grade SET name='Lina', chinese=78, english=89, mathematics=90");
+            $rs = $db->query("SELECT * FROM grade");
+        }
+        catch(PDOException $e) {
+            echo 'ERROR: ' . $e->getMessage();
+        }
+        ?>
+    </table>
+</article>
+
+
+
+<article>
+    <h1>8/6 Read</h1>
     <table border="1" class="ui basic table">
 <?
 
